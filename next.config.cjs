@@ -1,13 +1,9 @@
-/** @type {import('next').NextConfig} */
+// next.config.cjs
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.experiments = {
-        topLevelAwait: true,
-      };
-    }
+  webpack(config) {
+    config.experiments = { ...config.experiments, topLevelAwait: true };
     return config;
   },
 };
