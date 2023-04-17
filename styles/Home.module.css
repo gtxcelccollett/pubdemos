@@ -17,6 +17,11 @@
 .cloudform {
   position: relative;
 }
+.logo {
+  margin: auto;
+  max-width: 250px;
+  height: auto;
+}
 
 .textarea {
   position: relative;

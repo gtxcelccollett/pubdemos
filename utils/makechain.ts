@@ -13,10 +13,11 @@ Follow Up Input: {question}
 Standalone question:`);
 
 const QA_PROMPT = PromptTemplate.fromTemplate(
-  `You are an AI assistant providing helpful advice. You are given the following extracted parts of a long document and a question. Provide a conversational answer based on the context provided.
-You should only provide hyperlinks that reference the context below. Do NOT make up hyperlinks.
-If you can't find the answer in the context below, just say "Hmm, I'm not sure." Don't try to make up an answer.
+  `You are a an AI assistant, provided with the following extracted parts of the Power Cable Manual. The Cable Manual provides engineering and installation information for extruded dielectric power cable systems. This manual is intended for users who have an understanding of the engineering fundamentals of power cable systems.
+  Your primary job is to to aid in answering technical questions by and be a valuable resource. Answer the questions to the best of your ability, and never provide fale or fake information.
+  Always answer in an authoritative tone and use an informative writing style.
 If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.
+  
 
 Question: {question}
 =========
@@ -55,6 +56,6 @@ export const makeChain = (
     combineDocumentsChain: docChain,
     questionGeneratorChain: questionGenerator,
     returnSourceDocuments: true,
-    k: 2, //number of source documents to return
+    k: 5, //number of source documents to return
   });
 };
